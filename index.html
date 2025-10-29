@@ -4,23 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proposal Event - Fun Run 1st Anniversary</title>
-    <!-- Memuat Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Memuat Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Menggunakan font Inter */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            /* Latar belakang */
-            background-color: #0F172A; /* slate-900 */
+            /* Latar belakang utama (BARU: Abu-abu sangat gelap) */
+            background-color: #111827; /* Tailwind Gray-900 */
         }
+
+        /* Palet Warna Kustom (Disesuaikan untuk Kenyamanan) */
+        .color-primary { color: #F44453; } /* Merah Cerah (Aksen Utama/Ikon) */
+        .color-highlight-text { color: #8F49EE; } /* Ungu Cerah (Teks Highlight) */
+        .bg-primary { background-color: #F44453; }
+        
+        /* BARU: Palet Dark Mode Kontras Tinggi */
+        .bg-secondary { background-color: #111827; } /* Gray-900 (Untuk elemen internal seperti header tabel) */
+        .bg-card { background-color: #1F2937; } /* Gray-800 (Warna kartu utama) */
+        .border-card { border-color: #374151; } /* Gray-700 (Warna border) */
+        
+        .text-dark { color: #111827; } 
+        .text-light { color: #FFFFFF; } /* Putih */
+        .text-muted { color: #D1D5DB; } /* Gray-300 (Teks sekunder lebih jelas) */
 
         /* CSS untuk Accordion yang dinamis */
         .accordion-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s ease-in-out;
-            border-top: 1px solid #334155; /* slate-700 */
+            border-top: 1px solid #374151; /* Border Gray-700 (BARU) */
         }
         .accordion-content.is-open {
             max-height: 2500px; /* Nilai besar untuk menampung konten */
@@ -35,160 +48,191 @@
             transition: background-color 0.2s ease;
         }
         .accordion-toggle:hover {
-            background-color: #1E293B; /* slate-800 */
+            background-color: #374151; /* Gray-700 saat hover (BARU) */
         }
         .accordion-toggle.is-open {
-             background-color: #1E293B; /* slate-800 */
+             background-color: #1F2937; /* Tetap Gray-800 saat open */
+        }
+
+        /* BARU: Style untuk sel yang bisa diedit */
+        [contenteditable="true"].rab-nominal,
+        [contenteditable="true"].rab-qty {
+            background-color: #374151; /* Gray-700 */
+            outline: 2px solid transparent;
+            transition: outline-color 0.2s ease;
+            border-radius: 4px;
+            padding-left: 4px;
+            padding-right: 4px;
+        }
+        [contenteditable="true"].rab-nominal:focus,
+        [contenteditable="true"].rab-qty:focus {
+            outline-color: #8F49EE; /* Ungu Cerah */
+        }
+
+
+        /* Bentuk geometris untuk aksen (hidden on mobile) */
+        @media (min-width: 768px) { /* md: breakpoint */
+            .shape-accent-top-right::before {
+                content: '';
+                position: absolute;
+                top: -20px;
+                right: -20px;
+                width: 40px;
+                height: 40px;
+                background-color: #F44453; /* Merah cerah */
+                border-radius: 50%;
+                opacity: 0.4; /* Opacity diturunkan lagi */
+                z-index: -1;
+            }
+            .shape-accent-bottom-left::after {
+                content: '';
+                position: absolute;
+                bottom: -20px;
+                left: -20px;
+                width: 50px;
+                height: 50px;
+                background-color: #8F49EE; /* Ungu cerah */
+                transform: rotate(45deg);
+                opacity: 0.4; /* Opacity diturunkan lagi */
+                z-index: -1;
+            }
         }
     </style>
 </head>
-<body class="text-gray-200">
+<body class="text-light">
 
-    <div class="container mx-auto max-w-3xl py-12 px-4 sm:px-6 lg:px-8">
+    <!-- Latar belakang halftone dot dihapus dari sini -->
+    <!-- BARU: max-w-xl md:max-w-3xl lg:max-w-5xl untuk lebar responsif -->
+    <div class="container mx-auto max-w-xl md:max-w-3xl lg:max-w-5xl py-12 px-4 sm:px-6 lg:px-8 relative">
         
-        <!-- Header -->
-        <header class="text-center mb-10">
-            <h1 class="text-3xl font-bold text-white sm:text-4xl">
+        <!-- Header --><header class="text-center mb-10 relative z-10">
+            <h1 class="text-3xl font-bold text-light sm:text-4xl">
                 Heritage Lifestyle Hub Bintaro
             </h1>
-            <p class="mt-3 text-2xl font-semibold text-cyan-400">
+            <!-- .color-primary (merah) tetap di sini sebagai aksen utama -->
+            <!-- BARU: text-xl sm:text-2xl untuk font responsif -->
+            <p class="mt-3 text-xl sm:text-2xl font-semibold color-primary">
                 1st Anniversary FUN RUN
             </p>
-            <p class="mt-4 text-lg text-gray-300 bg-gray-800 inline-block px-4 py-1 rounded-full border border-gray-700">
+            <p class="mt-4 text-lg text-muted bg-card inline-block px-4 py-1 rounded-full border border-border-card">
                 Proposal & Rencana Operasional • 2 Nov 2025
             </p>
         </header>
 
-        <!-- Container untuk Accordion -->
-        <div class="space-y-4">
+        <!-- Container untuk Accordion --><div class="space-y-4">
 
-            <!-- Bagian 1: Latar Belakang (BARU) -->
-            <div class="bg-gray-800 shadow-xl rounded-lg overflow-hidden">
-                <!-- Header Toggle -->
-                <div class="accordion-toggle flex justify-between items-center p-5 cursor-pointer" data-target="content-latar-belakang">
+            <!-- Bagian 1: Latar Belakang (BARU) --><div class="bg-card shadow-xl rounded-lg overflow-hidden relative shape-accent-top-right">
+                <!-- Header Toggle --><div class="accordion-toggle flex justify-between items-center p-5 cursor-pointer" data-target="content-latar-belakang">
                     <div class="flex items-center space-x-3">
-                        <!-- Ikon Light Bulb -->
-                        <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m12.728 0l-.707.707M12 21v-1m-6.364-1.636l.707-.707m12.728 0l.707.707M12 6a3 3 0 110 6 3 3 0 010-6z"></path></svg>
-                        <h2 class="text-lg font-semibold text-white">Latar Belakang</h2>
+                        <!-- Ikon tetap .color-primary (merah) -->
+                        <svg class="w-6 h-6 color-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m12.728 0l-.707.707M12 21v-1m-6.364-1.636l.707-.707m12.728 0l.707.707M12 6a3 3 0 110 6 3 3 0 010-6z"></path></svg>
+                        <h2 class="text-lg font-semibold text-light">Latar Belakang</h2>
                     </div>
-                    <!-- Ikon Chevron -->
-                    <svg class="chevron-icon w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <!-- Ikon Chevron --><svg class="chevron-icon w-5 h-5 text-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </div>
-                <!-- Konten -->
-                <div id="content-latar-belakang" class="accordion-content">
+                <!-- Konten --><div id="content-latar-belakang" class="accordion-content">
                     <div class="p-5 pt-4">
-                        <p class="text-gray-300 leading-relaxed">
+                        <p class="text-muted leading-relaxed">
                             Dalam rangka memperingati 1st Anniversary Heritage Lifestyle Hub (HLH) Bintaro, manajemen berinisiatif mengadakan kegiatan Fun Run sebagai bentuk apresiasi kepada komunitas dan pengunjung setia HLH. Kegiatan ini juga menjadi momentum untuk memperkuat citra HLH sebagai <strong>pusat gaya hidup aktif dan sehat</strong> di kawasan Bintaro.
                         </p>
-                        <p class="text-gray-300 leading-relaxed mt-3">
+                        <p class="text-muted leading-relaxed mt-3">
                             Event ini bersifat non-kompetitif (tanpa BIB) dengan fokus pada kebersamaan komunitas, promosi tenant, dan aktivasi brand HLH di kalangan masyarakat urban dan komunitas olahraga.
                         </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Bagian 2: Tujuan Kegiatan (BARU) -->
-            <div class="bg-gray-800 shadow-xl rounded-lg overflow-hidden">
-                <!-- Header Toggle -->
-                <div class="accordion-toggle flex justify-between items-center p-5 cursor-pointer" data-target="content-tujuan">
+            <!-- Bagian 2: Tujuan Kegiatan (BARU) --><div class="bg-card shadow-xl rounded-lg overflow-hidden relative shape-accent-bottom-left">
+                <!-- Header Toggle --><div class="accordion-toggle flex justify-between items-center p-5 cursor-pointer" data-target="content-tujuan">
                     <div class="flex items-center space-x-3">
-                        <!-- Ikon Trending Up -->
-                        <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
-                        <h2 class="text-lg font-semibold text-white">Tujuan Kegiatan</h2>
+                        <!-- Ikon tetap .color-primary (merah) -->
+                        <svg class="w-6 h-6 color-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                        <h2 class="text-lg font-semibold text-light">Tujuan Kegiatan</h2>
                     </div>
-                    <!-- Ikon Chevron -->
-                    <svg class="chevron-icon w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <!-- Ikon Chevron --><svg class="chevron-icon w-5 h-5 text-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </div>
-                <!-- Konten -->
-                <div id="content-tujuan" class="accordion-content">
+                <!-- Konten --><div id="content-tujuan" class="accordion-content">
                     <div class="p-5 pt-4">
-                        <ul class="space-y-3 text-gray-300 mt-4">
+                        <ul class="space-y-3 text-muted mt-4">
                             <li class="flex items-start">
-                                <span class="flex-shrink-0 w-5 h-5 bg-cyan-500 text-gray-900 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-1">1</span>
-                                <div><strong class="text-white">Brand Engagement:</strong> Memperkuat awareness HLH sebagai destinasi lifestyle & sports-friendly.</div>
+                                <span class="flex-shrink-0 w-5 h-5 bg-primary text-light rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-1">1</span>
+                                <div><strong class="text-light">Brand Engagement:</strong> Memperkuat awareness HLH sebagai destinasi lifestyle & sports-friendly.</div>
                             </li>
                             <li class="flex items-start">
-                                <span class="flex-shrink-0 w-5 h-5 bg-cyan-500 text-gray-900 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-1">2</span>
-                                <div><strong class="text-white">Komunitas & Networking:</strong> Mempererat hubungan antara tenant, komunitas, dan customer.</div>
+                                <span class="flex-shrink-0 w-5 h-5 bg-primary text-light rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-1">2</span>
+                                <div><strong class="text-light">Komunitas & Networking:</strong> Mempererat hubungan antara tenant, komunitas, dan customer.</div>
                             </li>
                             <li class="flex items-start">
-                                <span class="flex-shrink-0 w-5 h-5 bg-cyan-500 text-gray-900 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-1">3</span>
-                                <div><strong class="text-white">Traffic Generation:</strong> Meningkatkan kunjungan ke area HLH selama periode event.</div>
+                                <span class="flex-shrink-0 w-5 h-5 bg-primary text-light rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-1">3</span>
+                                <div><strong class="text-light">Traffic Generation:</strong> Meningkatkan kunjungan ke area HLH selama periode event.</div>
                             </li>
                              <li class="flex items-start">
-                                <span class="flex-shrink-0 w-5 h-5 bg-cyan-500 text-gray-900 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-1">4</span>
-                                <div><strong class="text-white">Brand Positioning:</strong> Memperkuat citra HLH sebagai lifestyle hub modern yang peduli terhadap gaya hidup sehat.</div>
+                                <span class="flex-shrink-0 w-5 h-5 bg-primary text-light rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-1">4</span>
+                                <div><strong class="text-light">Brand Positioning:</strong> Memperkuat citra HLH sebagai lifestyle hub modern yang peduli terhadap gaya hidup sehat.</div>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- Bagian 3: Ringkasan Acara (Diperbarui) -->
-            <div class="bg-gray-800 shadow-xl rounded-lg overflow-hidden">
-                <!-- Header Toggle -->
-                <div class="accordion-toggle flex justify-between items-center p-5 cursor-pointer" data-target="content-ringkasan">
+            <!-- Bagian 3: Ringkasan Acara (Diperbarui) --><div class="bg-card shadow-xl rounded-lg overflow-hidden">
+                <!-- Header Toggle --><div class="accordion-toggle flex justify-between items-center p-5 cursor-pointer" data-target="content-ringkasan">
                     <div class="flex items-center space-x-3">
-                        <!-- Ikon -->
-                        <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <h2 class="text-lg font-semibold text-white">Konsep & Ringkasan Acara</h2>
+                        <!-- Ikon tetap .color-primary (merah) -->
+                        <svg class="w-6 h-6 color-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <h2 class="text-lg font-semibold text-light">Konsep & Ringkasan Acara</h2>
                     </div>
-                    <!-- Ikon Chevron -->
-                    <svg class="chevron-icon w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <!-- Ikon Chevron --><svg class="chevron-icon w-5 h-5 text-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </div>
-                <!-- Konten -->
-                <div id="content-ringkasan" class="accordion-content">
+                <!-- Konten --><div id="content-ringkasan" class="accordion-content">
                     <div class="p-5 pt-4">
-                        <div class="space-y-3 text-gray-300 mt-4">
-                            <p><strong class="font-medium text-cyan-400 w-28 inline-block">Tema:</strong> “Run Together, Celebrate Together”</p>
-                            <p><strong class="font-medium text-cyan-400 w-28 inline-block">Sifat:</strong> Non-kompetitif, tanpa BIB (fokus komunitas)</p>
-                            <p><strong class="font-medium text-cyan-400 w-28 inline-block">Kategori:</strong> 5K & 10K</p>
-                            <p><strong class="font-medium text-cyan-400 w-28 inline-block">Lokasi:</strong> Heritage Lifestyle Hub (Start/Finish)</p>
-                            <p><strong class="font-medium text-cyan-400 w-28 inline-block">Rute 10K:</strong> HLH → Santika → Hero (WS1) → Tol Parigi (U-turn) → Aluvia → ECI (WS2) → Shell → HLH (finish)</p>
-                            <p><strong class="font-medium text-cyan-400 w-28 inline-block">Rute 5K:</strong> HLH → Santika → Flyover Loops (U-turn) → ECI (WS2) → Shell → HLH (finish)</p>
+                        <div class="space-y-3 text-muted mt-4">
+                            <!-- Teks strong diganti ke .color-highlight-text (ungu) -->
+                            <p><strong class="font-medium color-highlight-text w-28 inline-block">Tema:</strong> “Run Together, Celebrate Together”</p>
+                            <p><strong class="font-medium color-highlight-text w-28 inline-block">Sifat:</strong> Non-kompetitif, tanpa BIB (fokus komunitas)</p>
+                            <p><strong class="font-medium color-highlight-text w-28 inline-block">Kategori:</strong> 5K & 10K</p>
+                            <p><strong class="font-medium color-highlight-text w-28 inline-block">Lokasi:</strong> Heritage Lifestyle Hub (Start/Finish)</p>
+                            <p><strong class="font-medium color-highlight-text w-28 inline-block">Rute 10K:</strong> HLH → Santika → Hero (WS1) → Tol Parigi (U-turn) → Aluvia → ECI (WS2) → Shell → HLH (finish)</p>
+                            <p><strong class="font-medium color-highlight-text w-28 inline-block">Rute 5K:</strong> HLH → Santika → Flyover Loops (U-turn) → ECI (WS2) → Shell → HLH (finish)</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Bagian 4: Ringkasan Peserta (BARU) -->
-            <div class="bg-gray-800 shadow-xl rounded-lg overflow-hidden">
-                <!-- Header Toggle -->
-                <div class="accordion-toggle flex justify-between items-center p-5 cursor-pointer" data-target="content-peserta">
+            <!-- Bagian 4: Ringkasan Peserta (BARU) --><div class="bg-card shadow-xl rounded-lg overflow-hidden">
+                <!-- Header Toggle --><div class="accordion-toggle flex justify-between items-center p-5 cursor-pointer" data-target="content-peserta">
                     <div class="flex items-center space-x-3">
-                        <!-- Ikon Chart Pie -->
-                        <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
-                        <h2 class="text-lg font-semibold text-white">Ringkasan Peserta (Data Online)</h2>
+                        <!-- Ikon tetap .color-primary (merah) -->
+                        <svg class="w-6 h-6 color-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
+                        <h2 class="text-lg font-semibold text-light">Ringkasan Peserta (Data Online)</h2>
                     </div>
-                    <!-- Ikon Chevron -->
-                    <svg class="chevron-icon w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <!-- Ikon Chevron --><svg class="chevron-icon w-5 h-5 text-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </div>
-                <!-- Konten -->
-                <div id="content-peserta" class="accordion-content">
+                <!-- Konten --><div id="content-peserta" class="accordion-content">
                     <div class="p-5 pt-4 space-y-6">
                         
-                        <div class="bg-gray-700 p-4 rounded-lg text-center">
-                            <div class="text-3xl font-bold text-white">200 Peserta</div>
-                            <div class="text-sm text-cyan-400">Total Pendaftar Online Terverifikasi</div>
+                        <div class="bg-secondary p-4 rounded-lg text-center">
+                            <div class="text-3xl font-bold text-light">200 Peserta</div>
+                            <!-- Sub-judul tetap .color-primary (merah) -->
+                            <div class="text-sm color-primary">Total Pendaftar Online Terverifikasi</div>
                         </div>
 
                         <div>
-                            <h3 class="font-semibold text-white mb-2">Pembagian Jarak Lari</h3>
-                            <!-- Visual Bar Chart -->
-                            <div class="w-full bg-gray-700 rounded-full h-4 overflow-hidden flex">
-                                <div class="bg-cyan-500 h-4" style="width: 69.5%" title="5K (69.5%)"></div>
-                                <div class="bg-yellow-500 h-4" style="width: 30.5%" title="10K (30.5%)"></div>
+                            <h3 class="font-semibold text-light mb-2">Pembagian Jarak Lari</h3>
+                            <!-- Visual Bar Chart --><div class="w-full bg-secondary rounded-full h-4 overflow-hidden flex">
+                                <div class="bg-primary h-4" style="width: 69.5%" title="5K (69.5%)"></div>
+                                <div class="bg-yellow-400 h-4" style="width: 30.5%" title="10K (30.5%)"></div>
                             </div>
-                            <div class="flex justify-between text-sm mt-2 text-gray-300">
-                                <span><span class="w-3 h-3 bg-cyan-500 inline-block rounded-full mr-1"></span> <strong>5K:</strong> 139 peserta (69.5%)</span>
-                                <span><span class="w-3 h-3 bg-yellow-500 inline-block rounded-full mr-1"></span> <strong>10K:</strong> 61 peserta (30.5%)</span>
+                            <div class="flex justify-between text-sm mt-2 text-muted">
+                                <span><span class="w-3 h-3 bg-primary inline-block rounded-full mr-1"></span> <strong>5K:</strong> 139 peserta (69.5%)</span>
+                                <span><span class="w-3 h-3 bg-yellow-400 inline-block rounded-full mr-1"></span> <strong>10K:</strong> 61 peserta (30.5%)</span>
                             </div>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <h3 class="font-semibold text-white mb-2">Domisili Utama (Top 5)</h3>
-                                <ul class="list-disc list-inside space-y-1 text-gray-300">
+                                <h3 class="font-semibold text-light mb-2">Domisili Utama (Top 5)</h3>
+                                <ul class="list-disc list-inside space-y-1 text-muted">
                                     <li>Tangerang (59 peserta)</li>
                                     <li>Jakarta (51 peserta)</li>
                                     <li>Tangerang Selatan (31 peserta)</li>
@@ -197,16 +241,16 @@
                                 </ul>
                             </div>
                              <div>
-                                <h3 class="font-semibold text-white mb-2">Komunitas Terdaftar</h3>
-                                <p class="text-gray-300 text-sm">
+                                <h3 class="font-semibold text-light mb-2">Komunitas Terdaftar</h3>
+                                <p class="text-muted text-sm">
                                     SMPG, Bintaro Trojan, Wakanda, Eastvarun, Inventist Runners, Gercep Runners, dan AF Running Club.
                                 </p>
                             </div>
                         </div>
 
                         <div>
-                            <h3 class="font-semibold text-white mb-2">Insight & Rekomendasi</h3>
-                            <blockquote class="border-l-4 border-cyan-500 pl-4 py-2 text-gray-400 italic bg-gray-900/50 rounded-r-lg">
+                            <h3 class="font-semibold text-light mb-2">Insight & Rekomendasi</h3>
+                            <blockquote class="border-l-4 border-primary pl-4 py-2 text-muted italic bg-secondary rounded-r-lg">
                                 <ul class="list-disc list-inside space-y-1">
                                     <li>Mayoritas peserta memilih 5K → area family zone & refreshment perlu diperkuat.</li>
                                     <li>Peserta dominan dari Tangerang & Jakarta → promosi akses & transport perlu disesuaikan.</li>
@@ -219,136 +263,123 @@
                 </div>
             </div>
 
-            <!-- Bagian 5: Jadwal & Urutan Start -->
-            <div class="bg-gray-800 shadow-xl rounded-lg overflow-hidden">
-                <!-- Header Toggle -->
-                <div class="accordion-toggle flex justify-between items-center p-5 cursor-pointer" data-target="content-jadwal">
+            <!-- Bagian 5: Jadwal & Urutan Start --><div class="bg-card shadow-xl rounded-lg overflow-hidden">
+                <!-- Header Toggle --><div class="accordion-toggle flex justify-between items-center p-5 cursor-pointer" data-target="content-jadwal">
                     <div class="flex items-center space-x-3">
-                        <!-- Ikon -->
-                        <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                        <h2 class="text-lg font-semibold text-white">Jadwal & Urutan Start</h2>
+                        <!-- Ikon tetap .color-primary (merah) -->
+                        <svg class="w-6 h-6 color-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <h2 class="text-lg font-semibold text-light">Jadwal & Urutan Start</h2>
                     </div>
-                    <!-- Ikon Chevron -->
-                    <svg class="chevron-icon w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <!-- Ikon Chevron --><svg class="chevron-icon w-5 h-5 text-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </div>
-                <!-- Konten -->
-                <div id="content-jadwal" class="accordion-content">
+                <!-- Konten --><div id="content-jadwal" class="accordion-content">
                     <div class="p-5 pt-4">
-                        <ul class="space-y-3 text-gray-300 mt-4">
-                            <li><strong class="font-medium text-cyan-400 w-20 inline-block">04:30:</strong> Crew arrival & set-up</li>
-                            <li><strong class="font-medium text-cyan-400 w-20 inline-block">05:00:</strong> Briefing Crew & Marshall (HT, peta, tugas)</li>
-                            <li><strong class="font-medium text-cyan-400 w-20 inline-block">05:15:</strong> Briefing Volunteer & Water Station (WS)</li>
-                            <li><strong class="font-medium text-cyan-400 w-20 inline-block">05:30:</strong> Briefing Pacer & MC buka area</li>
-                            <li><strong class="font-medium text-cyan-400 w-20 inline-block">06:00:</strong> DJ performance start & Fun warm-up</li>
+                        <ul class="space-y-3 text-muted mt-4">
+                            <!-- Teks strong diganti ke .color-highlight-text (ungu) -->
+                            <li><strong class="font-medium color-highlight-text w-20 inline-block">04:00:</strong> Crew arrival & set-up</li>
+                            <li><strong class="font-medium color-highlight-text w-20 inline-block">04:30:</strong> Briefing Crew & Marshall (HT, peta, tugas)</li>
+                            <li><strong class="font-medium color-highlight-text w-20 inline-block">05:15:</strong> Briefing Volunteer & Water Station (WS)</li>
+                            <li><strong class="font-medium color-highlight-text w-20 inline-block">05:30:</strong> Briefing Pacer & MC buka area</li>
+                            <li><strong class="font-medium color-highlight-text w-20 inline-block">06:00:</strong> DJ performance start & Fun warm-up</li>
                             
-                            <!-- Staggered Start -->
-                            <li class="pt-3 border-t border-gray-600">
+                            <!-- Staggered Start --><li class="pt-3 border-t border-border-card">
                                 <strong class="font-semibold text-yellow-400 text-lg">START (Stagger 5 Menit)</strong>
                                 <ul class="list-disc list-inside mt-2 space-y-2 pl-4">
-                                    <li><strong class="text-white">06:15 — 10K Pacer 6’</strong> (<span class="font-bold text-red-500">BALON MERAH</span>)</li>
-                                    <li><strong class="text-white">06:20 — 10K Pacer 7’</strong> (<span class="font-bold text-yellow-500">BALON KUNING</span>)</li>
-                                    <li><strong class="text-white">06:25 — 10K Pacer 8’</strong> (<span class="font-bold text-blue-500">BALON BIRU</span>)</li>
-                                    <li><strong class="text-white">06:30 — 5K Pacer 6’</strong> (<span class="font-bold text-red-500">BALON MERAH</span>)</li>
-                                    <li><strong class="text-white">06:35 — 5K Pacer 7’</strong> (<span class="font-bold text-yellow-500">BALON KUNING</span>)</li>
-                                    <li><strong class="text-white">06:40 — 5K Pacer 8’</strong> (<span class="font-bold text-blue-500">BALON BIRU</span>)</li>
+                                    <li><strong class="text-light">06:15 — 10K Pacer 6’</strong> (<span class="font-bold text-red-500">BALON MERAH</span>)</li>
+                                    <li><strong class="text-light">06:20 — 10K Pacer 7’</strong> (<span class="font-bold text-yellow-400">BALON KUNING</span>)</li>
+                                    <li><strong class="text-light">06:25 — 10K Pacer 8’</strong> (<span class="font-bold text-blue-500">BALON BIRU</span>)</li>
+                                    <li><strong class="text-light">06:30 — 5K Pacer 6’</strong> (<span class="font-bold text-red-500">BALON MERAH</span>)</li>
+                                    <li><strong class="text-light">06:35 — 5K Pacer 7’</strong> (<span class="font-bold text-yellow-400">BALON KUNING</span>)</li>
+                                    <li><strong class="text-light">06:40 — 5K Pacer 8’</strong> (<span class="font-bold text-blue-500">BALON BIRU</span>)</li>
                                 </ul>
                             </li>
-                             <li><strong class="font-medium text-cyan-400 w-20 inline-block">06:45:</strong> Finish Handling, Refreshment, Games</li>
-                            <li><strong class="font-medium text-cyan-400 w-20 inline-block">09:00:</strong> Closing Ceremony</li>
+                             <li><strong class="font-medium color-highlight-text w-20 inline-block">06:45:</strong> Finish Handling, Refreshment, Games</li>
+                            <li><strong class="font-medium color-highlight-text w-20 inline-block">09:00:</strong> Closing Ceremony</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- Bagian 6: Detail Pacer -->
-            <div class="bg-gray-800 shadow-xl rounded-lg overflow-hidden">
-                <!-- Header Toggle -->
-                <div class="accordion-toggle flex justify-between items-center p-5 cursor-pointer" data-target="content-pacer">
+            <!-- Bagian 6: Detail Pacer --><div class="bg-card shadow-xl rounded-lg overflow-hidden">
+                <!-- Header Toggle --><div class="accordion-toggle flex justify-between items-center p-5 cursor-pointer" data-target="content-pacer">
                     <div class="flex items-center space-x-3">
-                        <!-- Ikon -->
-                        <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.653-.084-1.284-.238-1.857M10 12a3 3 0 11-6 0 3 3 0 016 0zm6 0a3 3 0 11-6 0 3 3 0 016 0zM4 20v-2c0-.653.084-1.284.238-1.857M4 20H2v-2a3 3 0 015.356-1.857M4 20H2m15-4a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        <h2 class="text-lg font-semibold text-white">Detail Pacer (24 Orang)</h2>
+                        <!-- Ikon tetap .color-primary (merah) -->
+                        <svg class="w-6 h-6 color-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.653-.084-1.284-.238-1.857M10 12a3 3 0 11-6 0 3 3 0 016 0zm6 0a3 3 0 11-6 0 3 3 0 016 0zM4 20v-2c0-.653.084-1.284.238-1.857M4 20H2v-2a3 3 0 015.356-1.857M4 20H2m15-4a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <h2 class="text-lg font-semibold text-light">Detail Pacer (24 Orang)</h2>
                     </div>
-                    <!-- Ikon Chevron -->
-                    <svg class="chevron-icon w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <!-- Ikon Chevron --><svg class="chevron-icon w-5 h-5 text-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </div>
-                <!-- Konten -->
-                <div id="content-pacer" class="accordion-content">
+                <!-- Konten --><div id="content-pacer" class="accordion-content">
                     <div class="p-5 pt-4">
-                        <ul class="space-y-3 text-gray-300 list-disc list-inside mt-4">
-                            <li><strong class="font-medium text-cyan-400">Tugas:</strong> Guiding tempo, safety, & friendly support</li>
-                            <li><strong class="font-medium text-cyan-400">Perlengkapan:</strong> Balon tinggi ("PACER 6/7/8"), reflective tape, peluit</li>
-                            <li><strong class="font-medium text-cyan-400">Formasi:</strong> 2 di depan + 2 di samping/rolling</li>
-                            <li><strong class="font-medium text-cyan-400">Kumpul:</strong> 05:30 untuk briefing akhir</li>
+                        <ul class="space-y-3 text-muted list-disc list-inside mt-4">
+                            <!-- Teks strong diganti ke .color-highlight-text (ungu) -->
+                            <li><strong class="font-medium color-highlight-text">Tugas:</strong> Guiding tempo, safety, & friendly support</li>
+                            <li><strong class="font-medium color-highlight-text">Perlengkapan:</strong> Balon tinggi ("PACER 6/7/8"), reflective tape, peluit</li>
+                            <li><strong class="font-medium color-highlight-text">Formasi:</strong> 2 di depan + 2 di samping/rolling</li>
+                            <li><strong class="font-medium color-highlight-text">Kumpul:</strong> 05:30 untuk briefing akhir</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- Bagian 7: Penempatan Marshall -->
-            <div class="bg-gray-800 shadow-xl rounded-lg overflow-hidden">
-                <!-- Header Toggle -->
-                <div class="accordion-toggle flex justify-between items-center p-5 cursor-pointer" data-target="content-marshall">
+            <!-- Bagian 7: Penempatan Marshall --><div class="bg-card shadow-xl rounded-lg overflow-hidden">
+                <!-- Header Toggle --><div class="accordion-toggle flex justify-between items-center p-5 cursor-pointer" data-target="content-marshall">
                     <div class="flex items-center space-x-3">
-                        <!-- Ikon -->
-                        <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                        <h2 class="text-lg font-semibold text-white">Penempatan Marshall (15 Orang)</h2>
+                        <!-- Ikon tetap .color-primary (merah) -->
+                        <svg class="w-6 h-6 color-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        <h2 class="text-lg font-semibold text-light">Penempatan Marshall (15 Orang)</h2>
                     </div>
-                    <!-- Ikon Chevron -->
-                    <svg class="chevron-icon w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <!-- Ikon Chevron --><svg class="chevron-icon w-5 h-5 text-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </div>
-                <!-- Konten -->
-                <div id="content-marshall" class="accordion-content">
+                <!-- Konten --><div id="content-marshall" class="accordion-content">
                     <div class="p-5 pt-4">
-                        <ul class="space-y-3 text-gray-300 list-disc list-inside mt-4">
-                            <li><strong class="text-white">Koordinator (Heritage Lifestyle Hub):</strong> 2 orang (04:30–09:00)</li>
-                            <li><strong class="text-white">Heritage Lifestyle Hub (Start/Finish):</strong> 3 orang (05:30–09:00)</li>
-                            <li><strong class="text-white">Hotel Santika (belok):</strong> 1 orang (05:45–08:00)</li>
-                            <li><strong class="text-white">Hero (WS1):</strong> 1 orang (05:50–08:00)</li>
-                            <li><strong class="text-white">Flyover Loop (U-turn 5K):</strong> 1 orang (06:10–07:10)</li>
-                            <li><strong class="text-white">Tol Parigi (U-turn 10K):</strong> 1 orang (06:00–08:00)</li>
-                            <li><strong class="text-white">Aluvia:</strong> 1 orang (06:00–08:00)</li>
-                            <li><strong class="text-white">ECI (WS2 & Medis):</strong> 1 orang (05:50–08:00)</li>
-                            <li><strong class="text-white">Shell (belok finish):</strong> 1 orang (06:00–08:00)</li>
-                            <li><strong class="text-white">Mobile Marshall/Sweepers:</strong> 3 orang (06:00–08:30)</li>
+                        <ul class="space-y-3 text-muted list-disc list-inside mt-4">
+                            <li><strong class="text-light">Koordinator (Wheels):</strong> 2 orang (04:30–09:00)</li>
+                            <li><strong class="text-light">Wheels (Start/Finish):</strong> 3 orang (05:30–09:00)</li>
+                            <li><strong class="text-light">Hotel Santika (belok):</strong> 1 orang (05:45–08:00)</li>
+                            <li><strong class="text-light">Hero (WS1):</strong> 1 orang (05:50–08:00)</li>
+                            <li><strong class="text-light">Flyover Loop (U-turn 5K):</strong> 1 orang (06:10–07:10)</li>
+                            <li><strong class="text-light">Tol Parigi (U-turn 10K):</strong> 1 orang (06:00–08:00)</li>
+                            <li><strong class="text-light">Aluvia:</strong> 1 orang (06:00–08:00)</li>
+                            <li><strong class="text-light">ECI (WS2 & Medis):</strong> 1 orang (05:50–08:00)</li>
+                            <li><strong class="text-light">Shell (belok finish):</strong> 1 orang (06:00–08:00)</li>
+                            <li><strong class="text-light">Mobile Marshall/Sweepers:</strong> 3 orang (06:00–08:30)</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- Bagian 8: Operasional Rute, WS, & Medis (Diperbarui) -->
-            <div class="bg-gray-800 shadow-xl rounded-lg overflow-hidden">
-                <!-- Header Toggle -->
-                <div class="accordion-toggle flex justify-between items-center p-5 cursor-pointer" data-target="content-rute">
+            <!-- Bagian 8: Operasional Rute, WS, & Medis (Diperbarui) --><div class="bg-card shadow-xl rounded-lg overflow-hidden">
+                <!-- Header Toggle --><div class="accordion-toggle flex justify-between items-center p-5 cursor-pointer" data-target="content-rute">
                     <div class="flex items-center space-x-3">
-                        <!-- Ikon -->
-                        <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l6.553 3.276a1 1 0 001.447-.894V5.618a1 1 0 00-1.447-.894L15 7m0 13V7m0 13l-6-3"></path></svg>
-                        <h2 class="text-lg font-semibold text-white">Operasional Rute, WS, & Medis</h2>
+                        <!-- Ikon tetap .color-primary (merah) -->
+                        <svg class="w-6 h-6 color-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l6.553 3.276a1 1 0 001.447-.894V5.618a1 1 0 00-1.447-.894L15 7m0 13V7m0 13l-6-3"></path></svg>
+                        <h2 class="text-lg font-semibold text-light">Operasional Rute, WS, & Medis</h2>
                     </div>
-                    <!-- Ikon Chevron -->
-                    <svg class="chevron-icon w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <!-- Ikon Chevron --><svg class="chevron-icon w-5 h-5 text-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </div>
-                <!-- Konten -->
-                <div id="content-rute" class="accordion-content">
+                <!-- Konten --><div id="content-rute" class="accordion-content">
                     <div class="p-5 pt-4">
                         <div class="space-y-4 mt-4">
                             <div>
-                                <h3 class="font-semibold text-cyan-400">Operasional Rute (06:15–08:00)</h3>
-                                <p class="text-gray-300">Mobile patroli lapor ke koordinator tiap 15 menit. Insiden via HT, koordinator kerahkan mobile/medical.</p>
+                                <!-- Judul H3 diganti ke .color-highlight-text (ungu) -->
+                                <h3 class="font-semibold color-highlight-text">Operasional Rute (06:15–08:00)</h3>
+                                <p class="text-muted">Mobile patroli lapor ke koordinator tiap 15 menit. Insiden via HT, koordinator kerahkan mobile/medical.</p>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-cyan-400">Water Station (WS)</h3>
-                                <ul class="list-disc list-inside text-gray-300 pl-4">
-                                    <li><strong class="text-white">WS1 (Hero) & WS2 (ECI):</strong> Aktif 05:50–08:00</li>
-                                    <li><strong class="text-white">Perlengkapan:</strong> Air galon, dispenser, cup, tissue, trash bag</li>
+                                <h3 class="font-semibold color-highlight-text">Water Station (WS)</h3>
+                                <ul class="list-disc list-inside text-muted pl-4">
+                                    <li><strong class="text-light">WS1 (Hero) & WS2 (ECI):</strong> Aktif 05:50–08:00</li>
+                                    <li><strong class="text-light">Perlengkapan:</strong> Air galon, dispenser, cup, tissue, trash bag</li>
                                 </ul>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-cyan-400">Medical & Safety</h3>
-                                <ul class="list-disc list-inside text-gray-300 pl-4">
-                                    <li><strong class="text-white">Water Station:</strong> ECI & Finish Area</li>
-                                    <li><strong class="text-white">Kontak:</strong> Marshal/koordinator pegang daftar kontak emergency</li>
-                                    <li><strong class="text-white">P3K Kit:</strong> Disiapkan di WS & mobile marshall (plester, betadine, kasa steril, perban, dll.)</li>
+                                <h3 class="font-semibold color-highlight-text">Medical & Safety</h3>
+                                <ul class="list-disc list-inside text-muted pl-4">
+                                    <li><strong class="text-light">Pos Medis:</strong> ECI & Finish Area</li>
+                                    <li><strong class="text-light">Evakuasi:</strong> Ambulans on-call & 1 mobile medical</li>
+                                    <li><strong class="text-light">Kontak:</strong> Marshal/koordinator pegang daftar kontak emergency</li>
+                                    <li><strong class="text-light">P3K Kit:</strong> Disiapkan di WS & mobile marshall (plester, betadine, kasa steril, perban, dll.)</li>
                                 </ul>
                             </div>
                         </div>
@@ -356,52 +387,44 @@
                 </div>
             </div>
 
-            <!-- Bagian 9: Finish & Post-Event (Diperbarui) -->
-            <div class="bg-gray-800 shadow-xl rounded-lg overflow-hidden">
-                <!-- Header Toggle -->
-                <div class="accordion-toggle flex justify-between items-center p-5 cursor-pointer" data-target="content-finish">
+            <!-- Bagian 9: Finish & Post-Event (Diperbarui) --><div class="bg-card shadow-xl rounded-lg overflow-hidden">
+                <!-- Header Toggle --><div class="accordion-toggle flex justify-between items-center p-5 cursor-pointer" data-target="content-finish">
                     <div class="flex items-center space-x-3">
-                        <!-- Ikon -->
-                        <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"></path></svg>
-                        <h2 class="text-lg font-semibold text-white">Entertainment & Post-Event</h2>
+                        <!-- Ikon tetap .color-primary (merah) -->
+                        <svg class="w-6 h-6 color-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"></path></svg>
+                        <h2 class="text-lg font-semibold text-light">Entertainment & Post-Event</h2>
                     </div>
-                    <!-- Ikon Chevron -->
-                    <svg class="chevron-icon w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <!-- Ikon Chevron --><svg class="chevron-icon w-5 h-5 text-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </div>
-                <!-- Konten -->
-                <div id="content-finish" class="accordion-content">
+                <!-- Konten --><div id="content-finish" class="accordion-content">
                     <div class="p-5 pt-4">
-                        <ul class="space-y-3 text-gray-300 mt-4 list-disc list-inside">
-                            <li><strong class="text-white">DJ Performance:</strong> Di start line (06:00) untuk meningkatkan antusiasme.</li>
-                            <li><strong class="text-white">Finish Handling (06:45–08:30):</strong> Games, refreshment, snack.</li>
-                            <li><strong class="text-white">Photo Spot & Family Zone:</strong> Di area finish untuk dokumentasi & interaksi peserta.</li>
-                            <li><strong class="text-white">Closing Ceremony (09:00):</strong> Pengumuman & penyerahan grand prize.</li>
+                        <ul class="space-y-3 text-muted mt-4 list-disc list-inside">
+                            <li><strong class="text-light">DJ Performance:</strong> Di start line (06:00) untuk meningkatkan antusiasme.</li>
+                            <li><strong class="text-light">Finish Handling (06:45–08:30):</strong> Games, refreshment, snack.</li>
+                            <li><strong class="text-light">Photo Spot & Family Zone:</strong> Di area finish untuk dokumentasi & interaksi peserta.</li>
+                            <li><strong class="text-light">Closing Ceremony (09:00):</strong> Pengumuman & penyerahan grand prize.</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- Bagian 10: Checklist Kunci -->
-            <div class="bg-gray-800 shadow-xl rounded-lg overflow-hidden">
-                <!-- Header Toggle -->
-                <div class="accordion-toggle flex justify-between items-center p-5 cursor-pointer" data-target="content-checklist">
+            <!-- Bagian 10: Checklist Kunci --><div class="bg-card shadow-xl rounded-lg overflow-hidden">
+                <!-- Header Toggle --><div class="accordion-toggle flex justify-between items-center p-5 cursor-pointer" data-target="content-checklist">
                     <div class="flex items-center space-x-3">
-                        <!-- Ikon -->
-                        <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <h2 class="text-lg font-semibold text-white">Checklist Kunci & Perlengkapan</h2>
+                        <!-- Ikon tetap .color-primary (merah) -->
+                        <svg class="w-6 h-6 color-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <h2 class="text-lg font-semibold text-light">Checklist Kunci & Perlengkapan</h2>
                     </div>
-                    <!-- Ikon Chevron -->
-                    <svg class="chevron-icon w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <!-- Ikon Chevron --><svg class="chevron-icon w-5 h-5 text-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </div>
-                <!-- Konten -->
-                <div id="content-checklist" class="accordion-content">
+                <!-- Konten --><div id="content-checklist" class="accordion-content">
                     <div class="p-5 pt-4">
-                        <ul class="list-disc list-inside space-y-3 text-gray-300 mt-4">
-                            <li><strong class="text-white">Balon Pacer:</strong> <span class="text-red-500">Merah=6’</span>, <span class="text-yellow-500">Kuning=7’</span>, <span class="text-blue-500">Biru=8’</span> (tulisan "PACER X")</li>
-                            <li><strong class="text-white">Komunikasi & ID:</strong> HT channel set & test; rompi/ID untuk semua marshal</li>
-                            <li><strong class="text-white">Signage:</strong> Cone & petunjuk di semua belokan & titik putar balik</li>
-                            <li><strong class="text-white">Dokumentasi:</strong> Photographer & drone (briefing no-fly zone/time). Prioritas: WS & finish line.</li>
-                            <li><strong class="text-white">Mobile Sweepers:</strong> Motor/sepeda dilengkapi P3K kecil & HT</li>
+                        <ul class="list-disc list-inside space-y-3 text-muted mt-4">
+                            <li><strong class="text-light">Balon Pacer:</strong> <span class="text-red-500">Merah=6’</span>, <span class="text-yellow-400">Kuning=7’</span>, <span class="text-blue-500">Biru=8’</span> (tulisan "PACER X")</li>
+                            <li><strong class="text-light">Komunikasi & ID:</strong> HT channel set & test; rompi/ID untuk semua marshal</li>
+                            <li><strong class="text-light">Signage:</strong> Cone & petunjuk di semua belokan & titik putar balik</li>
+                            <li><strong class="text-light">Dokumentasi:</strong> Photographer & drone (briefing no-fly zone/time). Prioritas: WS & finish line.</li>
+                            <li><strong class="text-light">Mobile Sweepers:</strong> Motor/sepeda dilengkapi P3K kecil & HT</li>
                         </ul>
                     </div>
                 </div>
@@ -410,75 +433,73 @@
             <!-- 
                 Bagian 11: RENCANA ANGGARAN BIAYA (RAB)
                 (Diperbarui dari DOCX)
-            -->
-            <div class="bg-gray-800 shadow-xl rounded-lg overflow-hidden">
-                <!-- Header Toggle -->
-                <div class="accordion-toggle flex justify-between items-center p-5 cursor-pointer" data-target="content-rab">
+            --><div class="bg-card shadow-xl rounded-lg overflow-hidden">
+                <!-- Header Toggle --><div class="accordion-toggle flex justify-between items-center p-5 cursor-pointer" data-target="content-rab">
                     <div class="flex items-center space-x-3">
-                        <!-- Ikon (Credit Card) -->
-                        <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H4a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
-                        <h2 class="text-lg font-semibold text-white">Rencana Anggaran Biaya (RAB)</h2>
+                        <!-- Ikon tetap .color-primary (merah) -->
+                        <svg class="w-6 h-6 color-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H4a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                        <h2 class="text-lg font-semibold text-light">Rencana Anggaran Biaya (RAB)</h2>
                     </div>
-                    <!-- Ikon Chevron -->
-                    <svg class="chevron-icon w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <!-- Ikon Chevron --><svg class="chevron-icon w-5 h-5 text-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </div>
-                <!-- Konten -->
-                <div id="content-rab" class="accordion-content">
+                <!-- Konten --><div id="content-rab" class="accordion-content">
                     <div class="p-5 pt-4">
                         <div class="space-y-6 mt-4">
 
-                            <!-- Target Peserta -->
-                            <div>
-                                <h3 class="text-lg font-semibold text-cyan-400 mb-3">Target Peserta (Estimasi Total)</h3>
+                            <!-- Target Peserta --><div>
+                                <!-- Judul H3 diganti ke .color-highlight-text (ungu) -->
+                                <h3 class="text-lg font-semibold color-highlight-text mb-3">Target Peserta (Estimasi Total)</h3>
                                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-                                    <div class="bg-gray-700 p-3 rounded-lg">
-                                        <div class="text-2xl font-bold text-white">50</div>
-                                        <div class="text-sm text-gray-400">Bintaro Trojan</div>
+                                    <div class="bg-secondary p-3 rounded-lg">
+                                        <!-- BARU: text-xl sm:text-2xl -->
+                                        <div class="text-xl sm:text-2xl font-bold text-light">50</div>
+                                        <div class="text-sm text-muted">Bintaro Trojan</div>
                                     </div>
-                                    <div class="bg-gray-700 p-3 rounded-lg">
-                                        <div class="text-2xl font-bold text-white">10</div>
-                                        <div class="text-sm text-gray-400">SMPG (Tbc)</div>
+                                    <div class="bg-secondary p-3 rounded-lg">
+                                        <!-- BARU: text-xl sm:text-2xl -->
+                                        <div class="text-xl sm:text-2xl font-bold text-light">10</div>
+                                        <div class="text-sm text-muted">SMPG (Tbc)</div>
                                     </div>
-                                    <div class="bg-gray-700 p-3 rounded-lg">
-                                        <div class="text-2xl font-bold text-white">200</div>
-                                        <div class="text-sm text-gray-400">Registrasi Online</div>
+                                    <div class="bg-secondary p-3 rounded-lg">
+                                        <!-- BARU: text-xl sm:text-2xl -->
+                                        <div class="text-xl sm:text-2xl font-bold text-light">200</div>
+                                        <div class="text-sm text-muted">Registrasi Online</div>
                                     </div>
-                                    <div class="bg-cyan-600 p-3 rounded-lg">
-                                        <div class="text-2xl font-bold text-white">260</div>
-                                        <div class="text-sm text-cyan-100">Total Peserta</div>
+                                    <div class="bg-primary p-3 rounded-lg">
+                                        <!-- BARU: text-xl sm:text-2xl -->
+                                        <div class="text-xl sm:text-2xl font-bold text-light">260</div>
+                                        <div class="text-sm text-light">Total Peserta</div>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Ringkasan Anggaran (Diperbarui) -->
-                            <div>
-                                <h3 class="text-lg font-semibold text-cyan-400 mb-3">Ringkasan Anggaran</h3>
-                                <div class="space-y-2 text-gray-300">
-                                    <div class="flex justify-between p-2 bg-gray-700 rounded">
-                                        <span>Entertainment (10%)</span>
-                                        <span class="font-medium text-white">Rp 3.200.000</span>
+                            <!-- Ringkasan Anggaran (Diperbarui) --><div>
+                                <h3 class="text-lg font-semibold color-highlight-text mb-3">Ringkasan Anggaran</h3>
+                                <div class="space-y-2 text-muted" id="rab-summary">
+                                    <div class="flex justify-between p-2 bg-secondary rounded">
+                                        <span>Entertainment (<span id="summary-entertainment-pct">24%</span>)</span>
+                                        <span class="font-medium text-light" id="summary-entertainment-total">Rp 3.200.000</span>
                                     </div>
-                                    <div class="flex justify-between p-2 bg-gray-700 rounded">
-                                        <span>Event Operasional (19%)</span>
-                                        <span class="font-medium text-white">Rp 5.940.000</span>
+                                    <div class="flex justify-between p-2 bg-secondary rounded">
+                                        <span>Event Operasional (<span id="summary-operasional-pct">45%</span>)</span>
+                                        <span class="font-medium text-light" id="summary-operasional-total">Rp 5.940.000</span>
                                     </div>
-                                    <div class="flex justify-between p-2 bg-gray-700 rounded">
-                                        <span>Komunitas (13%)</span>
-                                        <span class="font-medium text-white">Rp 4.000.000</span>
+                                    <div class="flex justify-between p-2 bg-secondary rounded">
+                                        <span>Komunitas (<span id="summary-komunitas-pct">31%</span>)</span>
+                                        <span class="font-medium text-light" id="summary-komunitas-total">Rp 4.000.000</span>
                                     </div>
-                                    <div class="flex justify-between p-3 bg-cyan-600 text-white rounded mt-3">
+                                    <div class="flex justify-between p-3 bg-primary text-light rounded mt-3">
                                         <span class="text-lg font-bold">Total Anggaran</span>
-                                        <span class="text-lg font-bold">Rp 12.640.000</span>
+                                        <span class="text-lg font-bold" id="summary-total">Rp 13.140.000</span>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Rincian Anggaran Biaya (Tabel Diperbarui) -->
-                            <div>
-                                <h3 class="text-lg font-semibold text-cyan-400 mb-3">Rincian Anggaran Biaya</h3>
-                                <div class="overflow-x-auto rounded-lg border border-gray-700">
-                                    <table class="w-full min-w-max text-left text-sm text-gray-300">
-                                        <thead class="bg-gray-700 text-gray-200 uppercase text-xs">
+                            <!-- Rincian Anggaran Biaya (Tabel Diperbarui) --><div>
+                                <h3 class="text-lg font-semibold color-highlight-text mb-3">Rincian Anggaran Biaya</h3>
+                                <div class="overflow-x-auto rounded-lg border border-border-card">
+                                    <table class="w-full min-w-max text-left text-sm text-muted">
+                                        <thead class="bg-secondary text-light uppercase text-xs">
                                             <tr>
                                                 <th class="py-3 px-4">Item</th>
                                                 <th class="py-3 px-4 text-right">Nominal (Rp)</th>
@@ -487,82 +508,77 @@
                                                 <th class="py-3 px-4">Deskripsi</th>
                                             </tr>
                                         </thead>
-                                        <tbody class="divide-y divide-gray-600 bg-gray-800">
-                                            <tr>
+                                        <tbody class="divide-y divide-border-card bg-card" id="rab-table-body">
+                                            <!-- BARU: data-category, contenteditable, dan class ditambahkan -->
+                                            <tr data-category="komunitas">
                                                 <td class="py-3 px-4">Voucher Komunitas</td>
-                                                <td class="py-3 px-4 text-right">50.000</td>
-                                                <td class="py-3 px-4 text-right">80</td>
-                                                <td class="py-3 px-4 text-right font-medium">4.000.000</td>
+                                                <td class="py-3 px-4 text-right rab-nominal" contenteditable="true">50.000</td>
+                                                <td class="py-3 px-4 text-right rab-qty" contenteditable="true">80</td>
+                                                <td class="py-3 px-4 text-right font-medium rab-row-total">4.000.000</td>
                                                 <td class="py-3 px-4">Coffee Treat Voucher</td>
                                             </tr>
-                                            <tr>
+                                            <tr data-category="entertainment">
                                                 <td class="py-3 px-4">Talent DJ</td>
-                                                <td class="py-3 px-4 text-right">2.000.000</td>
-                                                <td class="py-3 px-4 text-right">1</td>
-                                                <td class="py-3 px-4 text-right font-medium">2.000.000</td>
+                                                <td class="py-3 px-4 text-right rab-nominal" contenteditable="true">2.000.000</td>
+                                                <td class="py-3 px-4 text-right rab-qty" contenteditable="true">1</td>
+                                                <td class="py-3 px-4 text-right font-medium rab-row-total">2.000.000</td>
                                                 <td class="py-3 px-4">DJ Set + Talent</td>
                                             </tr>
-                                            <tr>
+                                            <tr data-category="entertainment">
                                                 <td class="py-3 px-4">Transport DJ</td>
-                                                <td class="py-3 px-4 text-right">700.000</td>
-                                                <td class="py-3 px-4 text-right">1</td>
-                                                <td class="py-3 px-4 text-right font-medium">700.000</td>
+                                                <td class="py-3 px-4 text-right rab-nominal" contenteditable="true">700.000</td>
+                                                <td class="py-3 px-4 text-right rab-qty" contenteditable="true">1</td>
+                                                <td class="py-3 px-4 text-right font-medium rab-row-total">700.000</td>
                                                 <td class="py-3 px-4">Bandung–Jakarta PP</td>
                                             </tr>
-                                            <tr>
-                                                <td class="py-3 px-4">Hotel/Penginapan DJ</td>
-                                                <td class="py-3 px-4 text-right">500.000</td>
-                                                <td class="py-3 px-4 text-right">1</td>
-                                                <td class="py-3 px-4 text-right font-medium">500.000</td>
+                                            <tr data-category="entertainment">
+                                                <td class="py-3 px-4">Hotel/Penginapan DJ </td>
+                                                <td class="py-3 px-4 text-right rab-nominal" contenteditable="true">500.000</td>
+                                                <td class="py-3 px-4 text-right rab-qty" contenteditable="true">1</td>
+                                                <td class="py-3 px-4 text-right font-medium rab-row-total">500.000</td>
                                                 <td class="py-3 px-4">Dekat HLH Bintaro</td>
                                             </tr>
-                                            <tr>
+                                            <tr data-category="operasional">
                                                 <td class="py-3 px-4">Balloon Gate</td>
-                                                <td class="py-3 px-4 text-right">4.000.000</td>
-                                                <td class="py-3 px-4 text-right">1</td>
-                                                <td class="py-3 px-4 text-right font-medium">4.000.000</td>
-                                                <td class="py-3 px-4">Ukuran 3x4 m (Pemakaian bisa 4 tahun)</td>
+                                                <td class="py-3 px-4 text-right rab-nominal" contenteditable="true">4.000.000</td>
+                                                <td class="py-3 px-4 text-right rab-qty" contenteditable="true">1</td>
+                                                <td class="py-3 px-4 text-right font-medium rab-row-total">4.000.000</td>
+                                                <td class="py-3 px-4">bisa di gunakan sd 4 tahun</td>
                                             </tr>
-                                            <tr>
+                                            <tr data-category="operasional">
                                                 <td class="py-3 px-4">Refreshment</td>
-                                                <td class="py-3 px-4 text-right">20.000</td>
-                                                <td class="py-3 px-4 text-right">10</td>
-                                                <td class="py-3 px-4 text-right font-medium">200.000</td>
+                                                <td class="py-3 px-4 text-right rab-nominal" contenteditable="true">20.000</td>
+                                                <td class="py-3 px-4 text-right rab-qty" contenteditable="true">10</td>
+                                                <td class="py-3 px-4 text-right font-medium rab-row-total">200.000</td>
                                                 <td class="py-3 px-4">Infused Water & Air Mineral</td>
                                             </tr>
-                                            <tr>
-                                                <td class="py-3 px-4">Balloon Pacer</td>
-                                                <td class="py-3 px-4 text-right">5.000</td>
-                                                <td class="py-3 px-4 text-right">48</td>
-                                                <td class="py-3 px-4 text-right font-medium">240.000</td>
-                                                <td class="py-3 px-4">Penanda Tempo 5K & 10K</td>
-                                            </tr>
-                                            <tr>
+                                            <tr data-category="operasional">
                                                 <td class="py-3 px-4">P3K & Medical Supplies</td>
-                                                <td class="py-3 px-4 text-right">500.000</td>
-                                                <td class="py-3 px-4 text-right">1</td>
-                                                <td class="py-3 px-4 text-right font-medium">500.000</td>
+                                                <td class="py-3 px-4 text-right rab-nominal" contenteditable="true">500.000</td>
+                                                <td class="py-3 px-4 text-right rab-qty" contenteditable="true">1</td>
+                                                <td class="py-3 px-4 text-right font-medium rab-row-total">500.000</td>
                                                 <td class="py-3 px-4">Kotak P3K + perlengkapan</td>
                                             </tr>
-                                            <tr>
+                                            <tr data-category="operasional">
                                                 <td class="py-3 px-4">Perizinan Babinsa</td>
-                                                <td class="py-3 px-4 text-right">1.000.000</td>
-                                                <td class="py-3 px-4 text-right">1</td>
-                                                <td class="py-3 px-4 text-right font-medium">1.000.000</td>
+                                                <td class="py-3 px-4 text-right rab-nominal" contenteditable="true">2.500.000</td>
+                                                <td class="py-3 px-4 text-right rab-qty" contenteditable="true">1</td>
+                                                <td class="py-3 px-4 text-right font-medium rab-row-total">2.500.000</td>
                                                 <td class="py-3 px-4">Administratif & Keamanan</td>
                                             </tr>
-                                            <tr>
+                                            <tr data-category="operasional">
                                                 <td class="py-3 px-4">Lain-lain / Kontinjensi</td>
-                                                <td class="py-3 px-4 text-right">2.000.000</td>
-                                                <td class="py-3 px-4 text-right">1</td>
-                                                <td class="py-3 px-4 text-right font-medium">2.000.000</td>
+                                                <td class="py-3 px-4 text-right rab-nominal" contenteditable="true">2.000.000</td>
+                                                <td class="py-3 px-4 text-right rab-qty" contenteditable="true">1</td>
+                                                <td class="py-3 px-4 text-right font-medium rab-row-total">2.000.000</td>
                                                 <td class="py-3 px-4">Biaya cadangan</td>
                                             </tr>
                                         </tbody>
-                                        <tfoot class="bg-gray-900 font-bold text-white text-base">
+                                        <tfoot class="bg-secondary font-bold text-light text-base">
                                             <tr>
                                                 <td class="py-4 px-4" colspan="3">Total Anggaran</td>
-                                                <td class="py-4 px-4 text-right">12.640.000</td>
+                                                <!-- BARU: ID ditambahkan -->
+                                                <td class="py-4 px-4 text-right" id="table-grand-total">13.140.000</td>
                                                 <td class="py-4 px-4">&nbsp;</td>
                                             </tr>
                                         </tfoot>
@@ -575,24 +591,21 @@
                 </div>
             </div>
 
-            <!-- Bagian 12: KPI & Penutup (BARU) -->
-            <div class="bg-gray-800 shadow-xl rounded-lg overflow-hidden">
-                <!-- Header Toggle -->
-                <div class="accordion-toggle flex justify-between items-center p-5 cursor-pointer" data-target="content-kpi">
+            <!-- Bagian 12: KPI & Penutup (BARU) --><div class="bg-card shadow-xl rounded-lg overflow-hidden">
+                <!-- Header Toggle --><div class="accordion-toggle flex justify-between items-center p-5 cursor-pointer" data-target="content-kpi">
                     <div class="flex items-center space-x-3">
-                        <!-- Ikon Star -->
-                        <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.196-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118L2.98 9.11c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
-                        <h2 class="text-lg font-semibold text-white">Pengukuran Keberhasilan (KPI) & Penutup</h2>
+                        <!-- Ikon tetap .color-primary (merah) -->
+                        <svg class="w-6 h-6 color-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.196-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118L2.98 9.11c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
+                        <h2 class="text-lg font-semibold text-light">Pengukuran Keberhasilan (KPI) & Penutup</h2>
                     </div>
-                    <!-- Ikon Chevron -->
-                    <svg class="chevron-icon w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <!-- Ikon Chevron --><svg class="chevron-icon w-5 h-5 text-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </div>
-                <!-- Konten -->
-                <div id="content-kpi" class="accordion-content">
+                <!-- Konten --><div id="content-kpi" class="accordion-content">
                     <div class="p-5 pt-4 space-y-5">
                         <div>
-                            <h3 class="font-semibold text-cyan-400 mb-2">Pengukuran Keberhasilan (KPI)</h3>
-                            <ul class="list-disc list-inside space-y-2 text-gray-300">
+                            <!-- Judul H3 diganti ke .color-highlight-text (ungu) -->
+                            <h3 class="font-semibold color-highlight-text mb-2">Pengukuran Keberhasilan (KPI)</h3>
+                            <ul class="list-disc list-inside space-y-2 text-muted">
                                 <li>Partisipasi peserta (target: 200+ pendaftar aktif).</li>
                                 <li>Kunjungan ke tenant selama event (melalui kupon & footfall tracking).</li>
                                 <li>Engagement digital (reach, impressions, user content).</li>
@@ -600,8 +613,8 @@
                             </ul>
                         </div>
                          <div>
-                            <h3 class="font-semibold text-cyan-400 mb-2">Harapan & Penutup</h3>
-                            <p class="text-gray-300 leading-relaxed">
+                            <h3 class="font-semibold color-highlight-text mb-2">Harapan & Penutup</h3>
+                            <p class="text-muted leading-relaxed">
                                 Melalui kegiatan ini, Heritage Lifestyle Hub Bintaro tidak hanya merayakan ulang tahun pertama, tetapi juga memperkuat posisi sebagai <strong>lifestyle hub aktif, sehat, dan inklusif</strong> bagi komunitas lokal.
                             </p>
                         </div>
@@ -611,15 +624,13 @@
 
         </div>
 
-        <!-- Footer -->
-        <footer class="text-center mt-12 py-6 border-t border-gray-700">
-            <p class="text-gray-500">Disusun oleh: Marketing & Event Division | Heritage Lifestyle Hub Bintaro | Oktober 2025</p>
+        <!-- Footer --><footer class="text-center mt-12 py-6 border-t border-border-card">
+            <p class="text-muted">Disusun oleh: Marketing & Event Division | Heritage Lifestyle Hub Bintaro | Oktober 2025</p>
         </footer>
 
     </div>
 
-    <!-- JavaScript untuk Accordion -->
-    <script>
+    <!-- JavaScript untuk Accordion --><script>
         document.addEventListener('DOMContentLoaded', () => {
             const toggles = document.querySelectorAll('.accordion-toggle');
             
@@ -642,7 +653,7 @@
                     const icon = toggle.querySelector('.chevron-icon');
                     const isOpen = toggle.classList.contains('is-open');
 
-                    // --- BARU: Tutup semua accordion lain ---
+                    // --- Tutup semua accordion lain ---
                     toggles.forEach(otherToggle => {
                         const otherContent = document.getElementById(otherToggle.dataset.target);
                         const otherIcon = otherToggle.querySelector('.chevron-icon');
@@ -651,7 +662,7 @@
                         otherContent.classList.remove('is-open');
                         if (otherIcon) otherIcon.classList.remove('is-open');
                     });
-                    // --- AKHIR BARU ---
+                    // --- AKHIR TUTUP ---
 
                     // Buka/tutup yang diklik
                     // Hanya buka jika sebelumnya tertutup
@@ -662,6 +673,96 @@
                     }
                 });
             });
+
+            // --- BARU: LOGIKA KALKULATOR OTOMATIS ---
+
+            // Fungsi utilitas untuk memformat angka ke Rupiah (tanpa ".00")
+            function formatRupiah(number) {
+                return new Intl.NumberFormat('id-ID').format(number);
+            }
+
+            // Fungsi utilitas untuk mengubah teks (mis: "1.000.000" atau "50.000") menjadi angka
+            function parseNumber(text) {
+                // Hapus semua karakter non-digit (titik, koma, dll)
+                return parseInt(text.replace(/[\.,]/g, '')) || 0;
+            }
+
+            // Fungsi utama untuk menghitung ulang semua
+            function calculateAll() {
+                let totalEntertainment = 0;
+                let totalOperasional = 0;
+                let totalKomunitas = 0;
+
+                const rows = document.querySelectorAll('#rab-table-body tr');
+
+                rows.forEach(row => {
+                    const category = row.dataset.category;
+                    const nominalEl = row.querySelector('.rab-nominal');
+                    const qtyEl = row.querySelector('.rab-qty');
+                    const totalEl = row.querySelector('.rab-row-total');
+
+                    if (!nominalEl || !qtyEl || !totalEl) return;
+
+                    // 1. Ambil nilai & bersihkan
+                    const nominal = parseNumber(nominalEl.textContent);
+                    const qty = parseNumber(qtyEl.textContent);
+
+                    // 2. Kalkulasi total baris
+                    const rowTotal = nominal * qty;
+
+                    // 3. Update total baris di tabel
+                    totalEl.textContent = formatRupiah(rowTotal);
+
+                    // 4. Tambahkan ke total kategori
+                    if (category === 'entertainment') {
+                        totalEntertainment += rowTotal;
+                    } else if (category === 'operasional') {
+                        totalOperasional += rowTotal;
+                    } else if (category === 'komunitas') {
+                        totalKomunitas += rowTotal;
+                    }
+                });
+
+                // 5. Kalkulasi Grand Total
+                const grandTotal = totalEntertainment + totalOperasional + totalKomunitas;
+
+                // 6. Update Ringkasan Anggaran (Total)
+                document.getElementById('summary-entertainment-total').textContent = 'Rp ' + formatRupiah(totalEntertainment);
+                document.getElementById('summary-operasional-total').textContent = 'Rp ' + formatRupiah(totalOperasional);
+                document.getElementById('summary-komunitas-total').textContent = 'Rp ' + formatRupiah(totalKomunitas);
+                document.getElementById('summary-total').textContent = 'Rp ' + formatRupiah(grandTotal);
+
+                // 7. Update Ringkasan Anggaran (Persentase)
+                // Cek grandTotal > 0 untuk menghindari pembagian dengan nol
+                const pctEnt = grandTotal > 0 ? ((totalEntertainment / grandTotal) * 100).toFixed(0) : 0;
+                const pctOp = grandTotal > 0 ? ((totalOperasional / grandTotal) * 100).toFixed(0) : 0;
+                const pctKom = grandTotal > 0 ? ((totalKomunitas / grandTotal) * 100).toFixed(0) : 0;
+
+                document.getElementById('summary-entertainment-pct').textContent = pctEnt + '%';
+                document.getElementById('summary-operasional-pct').textContent = pctOp + '%';
+                document.getElementById('summary-komunitas-pct').textContent = pctKom + '%';
+
+                // 8. Update Total di footer tabel
+                document.getElementById('table-grand-total').textContent = formatRupiah(grandTotal);
+            }
+
+            // Targetkan body dari tabel RAB
+            const rabTableBody = document.getElementById('rab-table-body');
+            
+            if (rabTableBody) {
+                // Gunakan event listener 'input' pada 'rabTableBody' (event delegation)
+                rabTableBody.addEventListener('input', (event) => {
+                    // Cek apakah targetnya adalah sel yang bisa diedit
+                    if (event.target.classList.contains('rab-nominal') || event.target.classList.contains('rab-qty')) {
+                        calculateAll();
+                    }
+                });
+
+                // Panggil sekali saat load untuk memastikan data awal sinkron (jika ada)
+                calculateAll();
+            }
+
+            // --- AKHIR LOGIKA KALKULATOR ---
         });
     </script>
 
