@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rencana Operasional - Fun Run 1st Anniversary</title>
+    <title>Proposal Event - Fun Run 1st Anniversary</title>
     <!-- Memuat Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -11,7 +11,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            /* Latar belakang gradien halus */
+            /* Latar belakang */
             background-color: #0F172A; /* slate-900 */
         }
 
@@ -48,7 +48,7 @@
                 1st Anniversary FUN RUN
             </p>
             <p class="mt-4 text-lg text-gray-300 bg-gray-800 inline-block px-4 py-1 rounded-full border border-gray-700">
-                Rencana Operasional • 2 Nov 2025
+                Proposal & Rencana Operasional • 2 Nov 2025
             </p>
         </header>
 
@@ -265,6 +265,179 @@
                 </div>
             </div>
 
+            <!-- 
+                BAGIAN BARU: RENCANA ANGGARAN BIAYA (RAB)
+                Data diambil dari gambar image_e9c19a.png
+            -->
+            <div class="bg-gray-800 shadow-xl rounded-lg overflow-hidden">
+                <!-- Header Toggle -->
+                <div class="accordion-toggle flex justify-between items-center p-5 cursor-pointer" data-target="content-rab">
+                    <div class="flex items-center space-x-3">
+                        <!-- Ikon (Credit Card) -->
+                        <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H4a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                        <h2 class="text-lg font-semibold text-white">Rencana Anggaran Biaya (RAB)</h2>
+                    </div>
+                    <!-- Ikon Chevron -->
+                    <svg class="chevron-icon w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <!-- Konten -->
+                <div id="content-rab" class="accordion-content">
+                    <div class="p-5 pt-0 border-t border-gray-700">
+                        <div class="space-y-6 mt-4">
+
+                            <!-- Target Peserta -->
+                            <div>
+                                <h3 class="text-lg font-semibold text-cyan-400 mb-3">Target Peserta</h3>
+                                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+                                    <div class="bg-gray-700 p-3 rounded-lg">
+                                        <div class="text-2xl font-bold text-white">50</div>
+                                        <div class="text-sm text-gray-400">Bintaro Trojan</div>
+                                    </div>
+                                    <div class="bg-gray-700 p-3 rounded-lg">
+                                        <div class="text-2xl font-bold text-white">10</div>
+                                        <div class="text-sm text-gray-400">SMPG (Tbc)</div>
+                                    </div>
+                                    <div class="bg-gray-700 p-3 rounded-lg">
+                                        <div class="text-2xl font-bold text-white">200</div>
+                                        <div class="text-sm text-gray-400">Registrasi Online</div>
+                                    </div>
+                                    <div class="bg-cyan-600 p-3 rounded-lg">
+                                        <div class="text-2xl font-bold text-white">260</div>
+                                        <div class="text-sm text-cyan-100">Total Peserta</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Ringkasan Anggaran -->
+                            <div>
+                                <h3 class="text-lg font-semibold text-cyan-400 mb-3">Ringkasan Anggaran</h3>
+                                <div class="space-y-2 text-gray-300">
+                                    <div class="flex justify-between p-2 bg-gray-700 rounded">
+                                        <span>Total Budget Entertainment (10%)</span>
+                                        <span class="font-medium text-white">Rp 3.200.000</span>
+                                    </div>
+                                    <div class="flex justify-between p-2 bg-gray-700 rounded">
+                                        <span>Total Budget Event (18%)</span>
+                                        <span class="font-medium text-white">Rp 5.440.000</span>
+                                    </div>
+                                    <div class="flex justify-between p-2 bg-gray-700 rounded">
+                                        <span>Total Budget Komunitas (13%)</span>
+                                        <span class="font-medium text-white">Rp 4.000.000</span>
+                                    </div>
+                                    <div class="flex justify-between p-2 bg-gray-700 rounded">
+                                        <span>Total Budget Grand Prize (59%)</span>
+                                        <span class="font-medium text-white">Rp 18.000.000</span>
+                                    </div>
+                                    <div class="flex justify-between p-3 bg-cyan-600 text-white rounded mt-3">
+                                        <span class="text-lg font-bold">Total Budget Event</span>
+                                        <span class="text-lg font-bold">Rp 30.640.000</span>
+                                    </div>
+                                -----------------
+                            </div>
+
+                            <!-- Rincian Anggaran Biaya (Tabel) -->
+                            <div>
+                                <h3 class="text-lg font-semibold text-cyan-400 mb-3">Rincian Anggaran Biaya</h3>
+                                <div class="overflow-x-auto rounded-lg border border-gray-700">
+                                    <table class="w-full min-w-max text-left text-sm text-gray-300">
+                                        <thead class="bg-gray-700 text-gray-200 uppercase text-xs">
+                                            <tr>
+                                                <th class="py-3 px-4">Item</th>
+                                                <th class="py-3 px-4 text-right">Nominal (Rp)</th>
+                                                <th class="py-3 px-4 text-right">Qty</th>
+                                                <th class="py-3 px-4 text-right">Total (Rp)</th>
+                                                <th class="py-3 px-4">Deskripsi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-gray-600 bg-gray-800">
+                                            <tr>
+                                                <td class="py-3 px-4">Voucher Komunitas</td>
+                                                <td class="py-3 px-4 text-right">50.000</td>
+                                                <td class="py-3 px-4 text-right">80</td>
+                                                <td class="py-3 px-4 text-right font-medium">4.000.000</td>
+                                                <td class="py-3 px-4">Menggunakan Voucher Coffee Treat</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-3 px-4">Talent DJ</td>
+                                                <td class="py-3 px-4 text-right">2.000.000</td>
+                                                <td class="py-3 px-4 text-right">1</td>
+                                                <td class="py-3 px-4 text-right font-medium">2.000.000</td>
+                                                <td class="py-3 px-4">DJ Set + Talent</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-3 px-4">Transport DJ</td>
+                                                <td class="py-3 px-4 text-right">700.000</td>
+                                                <td class="py-3 px-4 text-right">1</td>
+                                                <td class="py-3 px-4 text-right font-medium">700.000</td>
+                                                <td class="py-3 px-4">Transport PP (BDG - JKT)</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-3 px-4">Hotel/Penginapan</td>
+                                                <td class="py-3 px-4 text-right">500.000</td>
+                                                <td class="py-3 px-4 text-right">1</td>
+                                                <td class="py-3 px-4 text-right font-medium">500.000</td>
+                                                <td class="py-3 px-4">Dekat Area HLH Bintaro</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-3 px-4">Balloon Gate</td>
+                                                <td class="py-3 px-4 text-right">4.000.000</td>
+                                                <td class="py-3 px-4 text-right">1</td>
+                                                <td class="py-3 px-4 text-right font-medium">4.000.000</td>
+                                                <td class="py-3 px-4">1 Balloon Gate 3x4 M</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-3 px-4">Grand Prize AF</td>
+                                                <td class="py-3 px-4 text-right">6.000.000</td>
+                                                <td class="py-3 px-4 text-right">3</td>
+                                                <td class="py-3 px-4 text-right font-medium">18.000.000</td>
+                                                <td class="py-3 px-4">Voucher Member AF Bintaro 1 Tahun</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-3 px-4">Refreshment</td>
+                                                <td class="py-3 px-4 text-right">20.000</td>
+                                                <td class="py-3 px-4 text-right">10</td>
+                                                <td class="py-3 px-4 text-right font-medium">200.000</td>
+                                                <td class="py-3 px-4">Air Mineral untuk infus water</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-3 px-4">Balloon Pacer</td>
+                                                <td class="py-3 px-4 text-right">5.000</td>
+                                                <td class="py-3 px-4 text-right">48</td>
+                                                <td class="py-3 px-4 text-right font-medium">240.000</td>
+                                                <td class="py-3 px-4">5K Pacer (24) 10K Pacer (24)</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-3 px-4">Perizinan Babinsa</td>
+                                                <td class="py-3 px-4 text-right">1.000.000</td>
+                                                <td class="py-3 px-4 text-right">1</td>
+                                                <td class="py-3 px-4 text-right font-medium">1.000.000</td>
+                                                <td class="py-3 px-4">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-3 px-4">Lain-lain</td>
+                                                <td class="py-3 px-4 text-right">2.000.000</td>
+                                                <td class="py-3 px-4 text-right">1</td>
+                                                <td class="py-3 px-4 text-right font-medium">2.000.000</td>
+                                                <td class="py-3 px-4">&nbsp;</td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot class="bg-gray-900 font-bold text-white text-base">
+                                            <tr>
+                                                <td class="py-4 px-4" colspan="3">Total Budget Event</td>
+                                                <td class="py-4 px-4 text-right">30.640.000</td>
+                                                <td class="py-4 px-4">&nbsp;</td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- AKHIR BAGIAN BARU -->
+
         </div>
 
         <!-- Footer -->
@@ -297,15 +470,6 @@
                     const content = document.getElementById(targetId);
                     const icon = toggle.querySelector('.chevron-icon');
 
-                    // Tutup semua accordion lain (jika Anda mau)
-                    // toggles.forEach(t => {
-                    //     if (t !== toggle) {
-                    //         document.getElementById(t.dataset.target).classList.remove('is-open');
-                    //         t.classList.remove('is-open');
-                    //         t.querySelector('.chevron-icon').classList.remove('is-open');
-                    //     }
-                    // });
-
                     // Buka/tutup yang diklik
                     toggle.classList.toggle('is-open');
                     content.classList.toggle('is-open');
@@ -317,4 +481,3 @@
 
 </body>
 </html>
-
